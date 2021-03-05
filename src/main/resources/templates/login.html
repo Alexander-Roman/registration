@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+    <div class="imgcontainer">
+        <img th:src="@{/images/login-avatar.png}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <div th:if="${param.error}" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Invalid username or password.
+        </div>
+        <label for="username-or-email"><b>Email or username</b></label>
+        <input id="username-or-email" type="text" placeholder="Enter Username" name="username-or-email" required>
+
+        <label for="password"><b>Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+        <label>
+            <input id="remember-me" type="checkbox" checked="checked" name="remember-me"> Remember me
+        </label>
+    </div>
+</form>
+</body>
+</html>
